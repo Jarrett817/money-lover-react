@@ -3,7 +3,7 @@ import React, {useRef, useState} from "react";
 
 
 const NoteSection: React.FunctionComponent = () => {
-    cosnt [note, setNote] = useState("");
+    const [note,setNote] = useState("");
     const refInput=useRef<HTMLInputElement>(null)
     const onBlur=()=>{
         if(refInput.current!==null){

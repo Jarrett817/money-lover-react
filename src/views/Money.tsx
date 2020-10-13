@@ -1,10 +1,10 @@
 import Layout from "../components/Layout";
-import React from "react";
 import styled from "styled-components";
 import {TagsSection} from "./money/TagSection";
 import {NoteSection} from "./money/NoteSection";
 import {CategorySection} from "./money/CategorySection";
 import {NumberPadSection} from "./money/NumberPadSection";
+import React from "react";
 
 
 const MyLayout=styled(Layout)`
@@ -12,23 +12,12 @@ const MyLayout=styled(Layout)`
   flex-direction: column;
 `
 
-
-
-const TagList = styled.ol`
-
-`;
-
 function Money() {
     return (
         <MyLayout>
             <TagsSection/>
             <NoteSection/>
-            <CategorySection>
-                <ul>
-                    <li className="selected">支出</li>
-                    <li>收入</li>
-                </ul>
-            </CategorySection>
+            <CategorySection/>
             <NumberPadSection>
                 <div className="output">
                     100

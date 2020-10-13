@@ -11,7 +11,6 @@ const Wrapper = styled.div`
 const Main = styled.div`
  flex-grow: 1;
  overflow: auto;
-
 `;
 
 
@@ -19,7 +18,7 @@ const Layout = (props: any) => {
     return (
         <Wrapper>
             <Main className={props.className}>
-            <h2>{props.children}</h2>
+                <h2>{props.children}</h2>
             </Main>
             <Nav/>
         </Wrapper>
