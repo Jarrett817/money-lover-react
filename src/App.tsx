@@ -3,7 +3,6 @@ import {
     HashRouter as Router,
     Switch,
     Route,
-    Link,
     Redirect
 } from "react-router-dom";
 import styled from "styled-components";
@@ -46,7 +45,6 @@ function App() {
                 </Main>
                 <div>
                     <Nav/>
-
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
                 </div>
@@ -62,15 +60,15 @@ function NoMatch() {
 }
 
 function Statistics() {
-    return <h2>Home</h2>;
+    return <h2>Statistics</h2>;
 }
 
 function Tags() {
-    return <h2>About</h2>;
+    return <h2>Tags</h2>;
 }
 
 function Money() {
-    return <h2>Users</h2>;
+    return <h2>Money</h2>;
 }
 
 export default App;
