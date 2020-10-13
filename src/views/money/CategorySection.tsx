@@ -2,20 +2,24 @@ import styled from "styled-components";
 import React, {useState} from "react";
 
 const CategorySection: React.FunctionComponent = () => {
-    const categoryMap= {"-": "支出", "+": "收入"};
-    type keys=keyof typeof categoryMap
+    const categoryMap = {"-": "支出", "+": "收入"};
+    type keys = keyof typeof categoryMap
     const [categoryList] = useState<keys[]>(["-", "+"]);
     const [category, setCategory] = useState("-");
     return (
         <Wrapper>
             <ul>
-                {categoryList.map(c =>
-                    <li className={category === c ? "selected" : ""}
-                        onClick={() => {
-                            setCategory(c);
-                        }}
-                    >{categoryMap[c]}
-                    </li>
+                {categoryList.map(c => {
+                        return (
+                            <li key={c}
+                                className={category === c ? "selected" : ""}
+                                onClick={() => {
+                                    setCategory(c);
+                                }}
+                            >{categoryMap[c]}
+                            </li>
+                        );
+                    }
                 )}
             </ul>
         </Wrapper>
