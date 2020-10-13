@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import React from "react";
 import styled from "styled-components";
 import {TagsSection} from "./money/TagSection";
-import {NotesSection} from "./money/NotesSection";
+import {NoteSection} from "./money/NoteSection";
 import {CategorySection} from "./money/CategorySection";
 import {NumberPadSection} from "./money/NumberPadSection";
 
@@ -10,7 +10,6 @@ import {NumberPadSection} from "./money/NumberPadSection";
 const MyLayout=styled(Layout)`
   display:flex;
   flex-direction: column;
-
 `
 
 
@@ -22,15 +21,8 @@ const TagList = styled.ol`
 function Money() {
     return (
         <MyLayout>
-            <TagsSection>
-
-            </TagsSection>
-            <NotesSection>
-                <label>
-                    <span>备注</span>
-                    <input type="text" placeholder="在这里添加备注"/>
-                </label>
-            </NotesSection>
+            <TagsSection/>
+            <NoteSection/>
             <CategorySection>
                 <ul>
                     <li className="selected">支出</li>
