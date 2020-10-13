@@ -356,7 +356,7 @@ module.exports = function (webpackEnv) {
                                     loader: 'svgo-loader',
                                     options: {
                                         plugins: [
-                                            // {removeTitle: true},
+                                            {removeAttrs: {attrs:'fill'}},
                                             // {convertColors: {shorthex: false}},
                                             // {convertPathData: false}
                                         ]

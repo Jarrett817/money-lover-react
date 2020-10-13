@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import React from "react";
+import Icon from "./Icon";
 
-require("icons/money.svg");
-require("icons/label.svg");
-require("icons/check.svg");
 
 const NavWrapper = styled.nav`
   border:1px solid blue;
@@ -16,14 +14,22 @@ const NavWrapper = styled.nav`
       >li{
         width:33.3333%;
         text-align: center;
+        >a{
         padding:4px 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .icon{
-          width:24px;
-          height:24px;
+          .icon{
+            width:24px;
+            height:24px;
+          }
+          &.selected{
+          color:red;
+           .icon{
+           fill:red;
+           }
+          }
         }
       }
   }
@@ -33,22 +39,22 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <svg className="icon">
-                        <use xlinkHref="#label"/>
-                    </svg>
-                    <Link to="/tags">标签页</Link>
+                    <NavLink to="/tags" activeClassName="selected">
+                        <Icon name="label"/>
+                        标签页
+                    </NavLink>
                 </li>
                 <li>
-                    <svg className="icon">
-                        <use xlinkHref="#money"/>
-                    </svg>
-                    <Link to="/money">记账页</Link>
+                    <NavLink to="/money" activeClassName="selected">
+                        <Icon name="money"/>
+                        记账页
+                    </NavLink>
                 </li>
                 <li>
-                    <svg className="icon">
-                        <use xlinkHref="#check"/>
-                    </svg>
-                    <Link to="/statistics">统计页</Link>
+                    <NavLink to="/statistics" activeClassName="selected">
+                        <Icon name="check"/>
+                        统计页
+                    </NavLink>
                 </li>
             </ul>
         </NavWrapper>

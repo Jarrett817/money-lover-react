@@ -1775,6 +1775,11 @@
     "@types/testing-library__dom" "*"
     pretty-format "^25.1.0"
 
+"@types/webpack-env@^1.15.3":
+  version "1.15.3"
+  resolved "https://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.15.3.tgz?cache=0&sync_timestamp=1600355948394&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fwebpack-env%2Fdownload%2F%40types%2Fwebpack-env-1.15.3.tgz#fb602cd4c2f0b7c0fb857e922075fdf677d25d84"
+  integrity sha1-+2As1MLwt8D7hX6SIHX99nfSXYQ=
+
 "@types/yargs-parser@*":
   version "15.0.0"
   resolved "https://registry.npm.taobao.org/@types/yargs-parser/download/@types/yargs-parser-15.0.0.tgz#cb3f9f741869e20cce330ffbeb9271590483882d"
