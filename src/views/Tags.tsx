@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import React from "react";
 import {useTags} from "useTags";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 function Tags() {
     const {tags, setTags} = useTags();
@@ -9,7 +10,9 @@ function Tags() {
         <Layout>
             <TagList>
                 {tags.map(tag =>
-                    <li key={tag}>{tag}</li>
+                    <Link to={'/tags/'+tag}>
+                        <li key={tag}>{tag}</li>
+                    </Link>
                 )}
             </TagList>
             <Center>
@@ -35,10 +38,10 @@ const Center = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
-const Space=styled.div`
+const Space = styled.div`
   height:16px;
 
-`
+`;
 const TagList = styled.ol`
   font-size:16px;
   >li{
@@ -52,6 +55,12 @@ const TagList = styled.ol`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    >a{
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding:12px 16px 12px 0;
+    }
   }
 
 `;
