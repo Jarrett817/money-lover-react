@@ -1,57 +1,65 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React from "react";
 
-
-const NumberPadSection: React.FunctionComponent = () => {
-    const [output, _setOutput] = useState("0");
-    const setOutput=(output:string)=>{
-        if(output.length>16){
-            output=output.slice(0,16);
-        }else if(output.length===0){
-            output='0'
+type Props = {
+    value: number;
+    onChange: (value: number) => void;
+}
+const NumberPadSection: React.FunctionComponent<Props> = (props) => {
+    const output = props.value.toString();
+    const setOutput = (output: string) => {
+        let value;
+        if (output.length > 16) {
+            value = parseFloat(output.slice(0, 16));
+        } else if (output.length === 0) {
+            value = 0;
+        } else {
+            value = parseFloat(output);
         }
-        _setOutput(output)
-    }
-    const onClickNumber = () => {
+        props.onChange(value);
     };
     const onClickButtonWrapper = (e: React.MouseEvent) => {
-        const text=(e.target as HTMLButtonElement).textContent;
-        if(text===null){return}
-        switch(text){
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                if(output==='0') {
-                    setOutput(text)
-                }else{
-                    setOutput(output+text)
+        const text = (e.target as HTMLButtonElement).textContent;
+        if (text === null) {
+            return;
+        }
+        switch (text) {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                if (output === "0") {
+                    setOutput(text);
+                } else {
+                    setOutput(output + text);
                 }
                 break;
-            case '.':
-                if(output.indexOf('.')>=0){return}
-                setOutput(output+'.');
+            case ".":
+                if (output.indexOf(".") >= 0) {
+                    return;
+                }
+                setOutput(output + ".");
                 break;
-            case 'C':
-                setOutput('')
+            case "C":
+                setOutput("");
                 break;
-            case '删除':
-                if(output.length===1){
-                    setOutput('')
-                }else{
-                    setOutput(output.slice(0,-1))
+            case "删除":
+                if (output.length === 1) {
+                    setOutput("");
+                } else {
+                    setOutput(output.slice(0, -1));
                 }
                 break;
-            case 'OK':
-
+            case "OK":
+                break;
             default:
-                return '';
+                return "";
         }
     };
     return (
