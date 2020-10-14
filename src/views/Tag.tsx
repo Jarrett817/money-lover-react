@@ -1,6 +1,6 @@
 import React from "react";
 import {useTags} from "useTags";
-import {useParams} from "react-router-dom";
+import {useParams,useHistory} from "react-router-dom";
 import Layout from "components/Layout";
 import Icon from "../components/Icon";
 import {Button} from "../components/Button";
@@ -13,28 +13,38 @@ type Params = {
 }
 
 const Tag: React.FunctionComponent = () => {
-    const {findTag,updateTag} = useTags<>();
+    const {findTag, updateTag, deleteTag} = useTags<>();
     let {id} = useParams<Params>();
     const tag = findTag(parseInt(id));
+    const history=useHistory()
+    const onClickBack=()=>{
+        history.goBack()
+    }
     return (
         <Layout>
             <TopBar>
-                <Icon name="back"/>
+                <Icon name="back" onClick={onClickBack}/>
                 <span>编辑标签</span>
                 <Icon/>
             </TopBar>
-            <InputWrapper>
-                <Input label="标签名" type="text" placeholder="标签名"
-                       value={tag.name}
-                       onChange={(e) => {
-                           updateTag(tag.id, {name: e.target.value});
-                       }}
+            {tag ? <div>
+                    <InputWrapper>
+                        <Input label="标签名" type="text" placeholder="标签名"
+                               value={tag.name}
+                               onChange={(e) => {
+                                   updateTag(tag.id, {name: e.target.value});
+                               }}
 
-                />
-            </InputWrapper>
-            <Center>
-                <Button>删除标签</Button>
-            </Center>
+                        />
+                    </InputWrapper>
+                    <Center>
+                        <Button onClick={() => {
+                            deleteTag(tag.id);
+                        }}>删除标签</Button>
+                    </Center></div> :
+                <Center>tag不存在</Center>
+            }
+
         </Layout>
     );
 };
