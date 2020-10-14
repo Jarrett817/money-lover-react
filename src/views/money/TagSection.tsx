@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+import {useTags} from "useTags";
 
 type Props = {
     value: string[];
@@ -7,7 +8,7 @@ type Props = {
 }
 const TagsSection: React.FunctionComponent<Props> = (props) => {
     const selectedTags = props.value;
-    const [tags, setTags] = useState<string[]>(["衣", "食", "住", "行"]);
+    const {tags,setTags}=useTags()
     const onAddTag = () => {
         const tagName = window.prompt("输入新标签");
         if (tagName !== null) {
