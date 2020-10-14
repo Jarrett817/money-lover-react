@@ -10,9 +10,12 @@ function Tags() {
         <Layout>
             <TagList>
                 {tags.map(tag =>
-                    <Link to={'/tags/'+tag}>
-                        <li key={tag}>{tag}</li>
-                    </Link>
+
+                    <li key={tag.id}>
+                        <Link to={"/tags/" + tag}>
+                            {tag.name}
+                        </Link>
+                    </li>
                 )}
             </TagList>
             <Center>

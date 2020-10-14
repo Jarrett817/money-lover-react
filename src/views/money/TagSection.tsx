@@ -3,39 +3,39 @@ import styled from "styled-components";
 import {useTags} from "useTags";
 
 type Props = {
-    value: string[];
-    onChange: (selected: string[]) => void;
+    value: number[];
+    onChange: (selected: number[]) => void;
 }
 const TagsSection: React.FunctionComponent<Props> = (props) => {
-    const selectedTags = props.value;
+    const selectedTagIds = props.value;
     const {tags,setTags}=useTags()
     const onAddTag = () => {
         const tagName = window.prompt("输入新标签");
         if (tagName !== null) {
-            setTags([...tags, tagName]);
+            setTags([...tags, {id: Math.random(),name:tagName}]);
         }
     };
-    const onToggleTag = (tag: string) => {
-        const index = selectedTags.indexOf(tag);
+    const onToggleTag = (tagId: number) => {
+        const index = selectedTagIds.indexOf(tagId);
         if (index >= 0) {
-            props.onChange(selectedTags.filter(t => t !== tag));
+            props.onChange(selectedTagIds.filter(t => t !== tagId));
         } else {
-            props.onChange([...selectedTags, tag]);
+            props.onChange([...selectedTagIds, tagId]);
         }
     };
-    const selectedClass = (tag: string) => {
-        return selectedTags.indexOf(tag) >= 0 ? "selected" : "";
+    const selectedClass = (tagId: number) => {
+        return selectedTagIds.indexOf(tagId) >= 0 ? "selected" : "";
     };
     return (
         <Wrapper>
             <ol>
                 {tags.map(tag => {
                     return (
-                        <li key={tag} onClick={() => {
-                            onToggleTag(tag);
+                        <li key={tag.id} onClick={() => {
+                            onToggleTag(tag.id);
                         }}
-                            className={selectedClass(tag)}
-                        >{tag}</li>
+                            className={selectedClass(tag.id)}
+                        >{tag.name}</li>
                     );
                 })
                 }
