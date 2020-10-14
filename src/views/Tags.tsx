@@ -3,6 +3,8 @@ import React from "react";
 import {useTags} from "useTags";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import {Button} from "../components/Button";
+import {Center} from "../components/Center";
 
 function Tags() {
     const {tags, setTags} = useTags();
@@ -26,21 +28,9 @@ function Tags() {
     );
 }
 
-const Button = styled.button`
-  font-size:18px;
-  border:none;
-  padding:8px 12px;
-  background:#f60;
-  border-radius:4px;
-  color:white;
-`;
 
-const Center = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
+
+
 const Space = styled.div`
   height:16px;
 
