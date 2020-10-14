@@ -18,6 +18,7 @@ const Tag: React.FunctionComponent = () => {
     const tag = findTag(parseInt(id));
     const history=useHistory()
     const onClickBack=()=>{
+        console.log('im back')
         history.goBack()
     }
     return (

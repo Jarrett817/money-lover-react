@@ -9,13 +9,8 @@ type Props = {
 }
 const TagsSection: React.FunctionComponent<Props> = (props) => {
     const selectedTagIds = props.value;
-    const {tags,setTags}=useTags()
-    const onAddTag = () => {
-        const tagName = window.prompt("输入新标签");
-        if (tagName !== null) {
-            setTags([...tags, {id: createId(),name:tagName}]);
-        }
-    };
+    const {tags,setTags,addTag}=useTags()
+
     const onToggleTag = (tagId: number) => {
         const index = selectedTagIds.indexOf(tagId);
         if (index >= 0) {
@@ -41,7 +36,7 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
                 })
                 }
             </ol>
-            <button onClick={onAddTag}>新增标签</button>
+            <button onClick={addTag}>新增标签</button>
         </Wrapper>
     );
 };
