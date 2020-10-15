@@ -13,7 +13,7 @@ type Params = {
 }
 
 const Tag: React.FunctionComponent = () => {
-    const {findTag, updateTag, deleteTag} = useTags<>();
+    const {findTag, updateTag, deleteTag} = useTags();
     let {id} = useParams<Params>();
     const tag = findTag(parseInt(id));
     const history=useHistory()
