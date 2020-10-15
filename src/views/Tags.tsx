@@ -1,20 +1,20 @@
-import Layout from "../components/Layout";
+import Layout from "components/Layout";
 import React from "react";
 import {useTags} from "hooks/useTags";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import {Button} from "../components/Button";
-import {Center} from "../components/Center";
+import {Button} from "components/Button";
+import {Center} from "components/Center";
 
 function Tags() {
-    const {tags,addTag} = useTags();
+    const {tags, addTag} = useTags();
     return (
         <Layout>
             <TagList>
                 {tags.map(tag =>
                     <li key={tag.id}>
                         <Link to={"/tags/" + tag.id}>
-                            {tag.name}
+                            <span>{tag.name}</span>
                         </Link>
                     </li>
                 )}
@@ -26,8 +26,6 @@ function Tags() {
         </Layout>
     );
 }
-
-
 
 
 const Space = styled.div`

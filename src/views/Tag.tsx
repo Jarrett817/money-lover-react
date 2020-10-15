@@ -2,11 +2,11 @@ import React from "react";
 import {useTags} from "hooks/useTags";
 import {useParams,useHistory} from "react-router-dom";
 import Layout from "components/Layout";
-import Icon from "../components/Icon";
-import {Button} from "../components/Button";
+import Icon from "components/Icon";
+import {Button} from "components/Button";
 import styled from "styled-components";
-import {Input} from "../components/Input";
-import {Center} from "../components/Center";
+import {Input} from "components/Input";
+import {Center} from "components/Center";
 
 type Params = {
     id: string
@@ -62,6 +62,10 @@ const TopBar = styled.header`
   line-height: 20px;
   padding:14px;
   background:white;
+  >.icon{
+    height: 24px;
+    width:24px;
+  }
   
 `;
 export {Tag};

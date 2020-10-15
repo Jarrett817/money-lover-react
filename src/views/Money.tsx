@@ -1,11 +1,11 @@
-import Layout from "../components/Layout";
+import Layout from "components/Layout";
 import styled from "styled-components";
 import {TagsSection} from "./money/TagSection";
 import {NoteSection} from "./money/NoteSection";
 import {CategorySection} from "./money/CategorySection";
 import {NumberPadSection} from "./money/NumberPadSection";
 import React, {useState} from "react";
-import {useRecords} from "../hooks/useRecords";
+import {useRecords} from "hooks/useRecords";
 
 
 const MyLayout = styled(Layout)`
