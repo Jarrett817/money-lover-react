@@ -7,7 +7,7 @@ type Props = {
 const Input: React.FunctionComponent<Props> = (props) => {
     const {label,children, ...rest} = props;
     return (<Label>
-        <span>{props.label}</span>
+        <span>{props.label}：</span>
         <input {...rest}/>
     </Label>);
 };

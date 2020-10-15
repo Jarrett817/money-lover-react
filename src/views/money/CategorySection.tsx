@@ -34,23 +34,27 @@ const CategorySection: React.FunctionComponent<Props> = (props) => {
 
 
 const Wrapper = styled.section`
- font-size: 24px;
+  font-size: 20px;
+  border-radius: 16px;    
+  background: #e5f1fa;
+  box-shadow: inset 2px 2px 4px #c3cdd5, 
+              inset -2px -2px 4px #ffffff;
+  padding:8px 10px;
+  margin:8px 8px 0 8px;
+
   > ul{
     display:flex;
     > li {
       width: 50%; 
       text-align:center;
-      padding: 16px 0;
+      padding: 12px 0;
       position:relative;
-      &.selected::after{
-        content: '';
-        display:block; 
-        height: 3px;
-        background:#333;
-        position:absolute;
-        bottom:0;
-        width: 100%;
-        left: 0;
+      &.selected{
+        border-radius: 16px;
+        background: #5fcae1;
+        box-shadow:  2px 2px 4px #c3cdd5, 
+               -2px -2px 4px #ffffff;
+        color:white;
       }
     }
   }

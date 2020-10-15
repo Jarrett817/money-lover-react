@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {Button} from "components/Button";
 import {Center} from "components/Center";
+import Icon from "../components/Icon";
 
 function Tags() {
     const {tags, addTag} = useTags();
@@ -15,6 +16,7 @@ function Tags() {
                     <li key={tag.id}>
                         <Link to={"/tags/" + tag.id}>
                             <span>{tag.name}</span>
+                            <Icon name="right"/>
                         </Link>
                     </li>
                 )}
@@ -35,17 +37,23 @@ const Space = styled.div`
 const TagList = styled.ol`
   font-size:16px;
   >li{
-    border-bottom: 1px solid #d5d5d9;
-    padding:12px 16px 12px 0;
-    margin-left: 16px;
-    line-height: 20px;
+    padding:0 0 0 12px;
+    line-height: 16px;
+    margin:20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    border-radius: 50px;
+    background: #e5f1fa;
+     box-shadow:  2px 2px 4px #c3cdd5, 
+             -2px -2px 4px #ffffff;
     >a{
+       color:#7595b0;
+       fill:#7595b0;
+       flex-grow: 1;
        display: flex;
        justify-content: space-between;
        align-items: center;

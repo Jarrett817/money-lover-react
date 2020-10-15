@@ -24,7 +24,7 @@ const Tag: React.FunctionComponent = () => {
     return (
         <Layout>
             <TopBar>
-                <Icon name="back" onClick={onClickBack}/>
+                <Icon name="left" onClick={onClickBack}/>
                 <span>编辑标签</span>
                 <Icon/>
             </TopBar>
@@ -39,7 +39,7 @@ const Tag: React.FunctionComponent = () => {
                         />
                     </InputWrapper>
                     <Center>
-                        <Button onClick={() => {
+                        <Button className="danger" onClick={() => {
                             deleteTag(tag.id);
                         }}>删除标签</Button>
                     </Center></div> :
@@ -51,9 +51,12 @@ const Tag: React.FunctionComponent = () => {
 };
 
 const InputWrapper = styled.div`
-  background:white;
   padding:0 16px;
   margin-top:8px;
+  margin-bottom: 36px;
+   box-shadow: inset 2px 2px 4px #c3cdd5, 
+                inset -2px -2px 4px #ffffff;
+   
 `;
 const TopBar = styled.header`
   display:flex;
@@ -61,7 +64,6 @@ const TopBar = styled.header`
   align-items: center;
   line-height: 20px;
   padding:14px;
-  background:white;
   >.icon{
     height: 24px;
     width:24px;

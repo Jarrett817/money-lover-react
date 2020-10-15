@@ -8,7 +8,7 @@ type Props = {
 }
 const TagsSection: React.FunctionComponent<Props> = (props) => {
     const selectedTagIds = props.value;
-    const {tags,addTag}=useTags()
+    const {tags, addTag} = useTags();
 
     const onToggleTag = (tagId: number) => {
         const index = selectedTagIds.indexOf(tagId);
@@ -42,31 +42,49 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
 
 
 const Wrapper = styled.section`
-  background: #FFFFFF;
-  padding:12px 16px;
-   flex-grow: 1; display:flex; flex-direction: column;
-  justify-content: flex-end; align-items: flex-start;
+  padding:16px 16px;
+  flex-grow: 1;
+ 
   >ol{
     margin:0 -12px;
+     display:flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    font-size: 16px;
+    
     >li{
-          background:#d9d9d9;
-          border-radius:18px;
-          display:inline-block;
-          padding:3px 18px;
-          font-size:14px;
-          margin:8px 12px;   
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      overflow: hidden;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 0 10px 12px;
+      border-radius: 32px/4;
+      min-width: 80px;
+      border-radius: 50px;
+      background: #e5f1fa;
+      box-shadow:  2px 2px 4px #c3cdd5, 
+                  -2px -2px 4px #ffffff;
+
           &.selected{
-            background:red;
+             background:#5fcae1;
+             color:white;
           }   
   }
   }
   >button{
+  display: inline;
     background: none;
     border:none;
     padding:2px 4px;
     border-bottom:1px solid #333;
     color:#666;
-    margin-top:8px;
+    margin-top:8px;  
+    text-align: left;  
   }
 `;
 

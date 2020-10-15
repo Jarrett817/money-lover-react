@@ -8,14 +8,14 @@ import {CategorySection} from "./money/CategorySection";
 import dayjs from "dayjs";
 
 function Statistics() {
-    const [category, setCategory] = useState<'-' | '+'>('-');
+    const [category, setCategory] = useState<"-" | "+">("-");
     const {records} = useRecords();
     const {getName} = useTags();
     const hash: { [K: string]: RecordItem[] } = {}; // {'2020-05-11': [item, item], '2020-05-10': [item, item], '2020-05-12': [item, item, item, item]}
     const selectedRecords = records.filter(r => r.category === category);
 
     selectedRecords.forEach(r => {
-        const key = dayjs(r.createdAt).format('YYYY年MM月DD日');
+        const key = dayjs(r.createdAt).format("YYYY年MM月DD日");
         if (!(key in hash)) {
             hash[key] = [];
         }
@@ -31,22 +31,20 @@ function Statistics() {
 
     return (
         <Layout>
-            <CategoryWrapper>
-                <CategorySection value={category}
-                                 onChange={value => setCategory(value)}/>
-            </CategoryWrapper>
+            <CategorySection value={category}
+                             onChange={value => setCategory(value)}/>
             {array.map(([date, records]) => <div key={date}>
                 <Header>
                     {date}
                 </Header>
-                <div>
+                <SingleDay>
                     {records.map(r => {
                         return <Item key={r.createdAt}>
                             <div className="tags oneLine">
                                 {r.tagIds
                                     .map(tagId => <span key={tagId}>{getName(tagId)}</span>)
                                     .reduce((result, span, index, array) =>
-                                        result.concat(index < array.length - 1 ? [span, '，'] : [span]), [] as ReactNode[])
+                                        result.concat(index < array.length - 1 ? [span, "，"] : [span]), [] as ReactNode[])
                                 }
                             </div>
                             {r.note && <div className="note">
@@ -57,23 +55,21 @@ function Statistics() {
                             </div>
                         </Item>;
                     })}
-                </div>
+                </SingleDay>
             </div>)}
         </Layout>
     );
 }
 
-const CategoryWrapper = styled.div`
-  background:white;
-`;
 
 const Item = styled.div`
   display:flex;
   justify-content: space-between;
-  background: white;
   font-size: 18px;
   line-height: 20px;
-  padding: 10px 16px;
+  padding: 10px 0;
+  margin:0 16px;
+  border-bottom:1px solid lightgrey;
   > .note{
     margin-right: auto;
     margin-left: 16px;
@@ -85,5 +81,12 @@ const Header = styled.h3`
   line-height: 20px;
   padding: 10px 16px;
 `;
+const SingleDay=styled.div`
+   padding:0 0 8px 0 ;
+   border-radius:4px;
+  background: #e5f1fa;
+  box-shadow: inset -2px 2px 4px #d5e0e9, 
+              inset 2px -2px 4px #f5ffff;
+`
 
 export default Statistics;

@@ -11,6 +11,14 @@ const Wrapper = styled.div`
 const Main = styled.div`
  flex-grow: 1;
  overflow: auto;
+ &::after{
+ position: absolute;
+ z-index: 12;
+      height:100%;
+      width:100%;
+      background: red;
+      clip-path: ellipse(130px 140px at 10% 20%);
+ }
 `;
 
 
