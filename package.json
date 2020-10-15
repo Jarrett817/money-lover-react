@@ -1,6 +1,7 @@
 {
   "name": "money-lover-react",
   "version": "0.1.0",
+  "homepage": "https://github.com/Jarrett817/money-lover-react-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
