@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import {useTags} from "useTags";
-import {createId} from "../../lib/createId";
+import {useTags} from "hooks/useTags";
 
 type Props = {
     value: number[];
@@ -9,7 +8,7 @@ type Props = {
 }
 const TagsSection: React.FunctionComponent<Props> = (props) => {
     const selectedTagIds = props.value;
-    const {tags,setTags,addTag}=useTags()
+    const {tags,addTag}=useTags()
 
     const onToggleTag = (tagId: number) => {
         const index = selectedTagIds.indexOf(tagId);

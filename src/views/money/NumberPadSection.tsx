@@ -4,6 +4,7 @@ import React from "react";
 type Props = {
     value: number;
     onChange: (value: number) => void;
+    onOk?:()=>void;
 }
 const NumberPadSection: React.FunctionComponent<Props> = (props) => {
     const output = props.value.toString();
@@ -57,6 +58,9 @@ const NumberPadSection: React.FunctionComponent<Props> = (props) => {
                 }
                 break;
             case "OK":
+                if(props.onOk){
+                    props.onOk()
+                }
                 break;
             default:
                 return "";
