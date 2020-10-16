@@ -14,6 +14,14 @@ import {Tag} from "./views/Tag";
 
 const AppWrapper = styled.div`
   color:#333;
+  background:#e5f1fa;
+  @media(min-width: 500px) {
+   {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+  
 `;
 
 function App() {

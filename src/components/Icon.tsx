@@ -1,7 +1,8 @@
 import React from "react";
 import classnames from 'classnames';
 //import a hole folder
-const importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
+const importAll = (requireContext: __WebpackModuleApi.RequireContext) =>
+    requireContext.keys().forEach(requireContext);
 try {
     importAll(require.context("icons", true, /\.svg$/));
 } catch (error) {

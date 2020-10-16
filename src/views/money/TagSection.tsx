@@ -71,7 +71,7 @@ const Wrapper = styled.section`
                   -2px -2px 4px #ffffff;
 
           &.selected{
-             background:#5fcae1;
+             background:#f4ab81;
              color:white;
           }   
   }

@@ -95,12 +95,12 @@ const NumberPadSection: React.FunctionComponent<Props> = (props) => {
 
 
 const Wrapper = styled.section`
-   display:flex;
+  display:flex;
   flex-direction: column;
   justify-content: flex-end;
   flex-grow: 1;
   > .output{
-    flex-shrink: 0;
+  flex-shrink: 0;
     font-size: 36px;
     line-height: 72px;
     text-align:right;
@@ -111,6 +111,7 @@ const Wrapper = styled.section`
   
   }
   > .pad{ 
+     flex-grow:3;
     > button{
       border-radius: 10px;
            background: #e5f1fa;
@@ -119,11 +120,11 @@ const Wrapper = styled.section`
       margin:10px;
       padding:10px 0;
       font-size: 18px; float: left; width: calc(25% - 20px); border: none;
-      &.ok{  float: right; 
+      &.ok{  
+            float: right; 
             padding:40px 0;
             background:#f4ab81;
             color:white;
-
       }
       &.zero{ width: calc(50% - 20px); }
       &:nth-child(4){
